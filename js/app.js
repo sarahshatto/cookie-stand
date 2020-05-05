@@ -6,25 +6,25 @@ var seattleloc = {
   maxCust: 65,
   AvgCookie: 6.3,
   cookieSalesPerHour: [],
-  
+
   getRandomCust: function() {
     return Math.floor(Math.random() * (maxCust - minCust + 1)) + minCust;
   },
-  
+
   simCookiesPerHour: function() {
     return AvgCookie * getRandomCust(); // This is total simulated cookies in an hour
   },
-  
+
   simCookiesPerDay : function() {
   	var hoursOpenPerDay = 14;
     for(var i = 0; i < hoursOpenPerDay; i++) {
       cookieSalesPerHour[i] = simCookiesPerHour();
-    },
-    
+    }
+
   },
-  
+
 };
-  
+
 var tokyoloc = {
   name: 'Tokyo',
   minCust: 3,
@@ -34,7 +34,7 @@ var tokyoloc = {
   getRandomCust: function() {
     return Math.floor(Math.random() * (maxCust - minCust + 1)) + minCust;
   }
-}
+},
 
 var dubailoc = {
   name: 'Dubai',
@@ -46,7 +46,7 @@ var dubailoc = {
     return Math.floor(Math.random() * (maxCust - minCust + 1)) + minCust;
   }
 }
-  
+
 var parisloc = {
   name: 'Paris',
   minCust: 20,
@@ -68,5 +68,5 @@ var limaloc = {
     return Math.floor(Math.random() * (maxCust - minCust + 1)) + minCust;
   }
 } 
-  
+
 
