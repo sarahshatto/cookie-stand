@@ -15,7 +15,7 @@
 var hours = ['6am', '7am', '8am', '9am', '10am','11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
 var seattle = {
-  name: 'seattle',
+  name: 'Seattle',
   minCustomersEachHour: 23,
   maxCustomersEachHour: 65,
   averageCookiesSoldPerCustomer: 6.3,
@@ -35,6 +35,7 @@ var seattle = {
     // multiply the customers by the average cookies each customer buys
     for(var i=0; i<this.customersEachHour.length; i++){
       var wholeCookiesSoldForOneHour = Math.ceil(this.customersEachHour[i] * this.averageCookiesSoldPerCustomer);
+      
       this.cookiesSoldEachHour.push(wholeCookiesSoldForOneHour);
 
       this.totalCookiesForTheDay += wholeCookiesSoldForOneHour; // this will take the total cookies and add the variable
@@ -43,7 +44,7 @@ var seattle = {
   render: function(){
     seattle.calcCustomersEachHour();
     seattle.calcCookiesSoldEachHour();
-    var seattleElement = document.getElementById('seattle')
+    var seattleElement = document.getElementById('seattle');
     // get the parent element from the DOM
     // 1. Create an Element
     // 2. fill it with text content
@@ -52,10 +53,11 @@ var seattle = {
     var listItem = document.createElement('li');
     listItem.textContent = this.name;
     seattleElement.appendChild(listItem);
+
     //render cookiesSoldEachHour
     for(var i=0; i<hours.length; i++){
       listItem = document.createElement('li');
-      listItem.textContent = this.cookiesSoldEachHour[i];
+      listItem.textContent = `${hours[i]}: ${this.cookiesSoldEachHour[i]} cookies`;
       seattleElement.appendChild(listItem);
     }
     // this will render totalCookiesForTheDayToTheDOM
@@ -71,6 +73,10 @@ function getRandomNumber(min,max) {
 }
 
 seattle.render();
+
+
+
+
 ////////////////////////////////
 ////////////////////////////////
 
