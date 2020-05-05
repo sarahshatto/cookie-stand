@@ -50,7 +50,7 @@ var seattle = {
     // 2. fill it with text content
     // 3. Append
     // render the name of the store
-    var listItem = document.createElement('li');
+    var listItem = document.createElement('h2');
     listItem.textContent = this.name;
     seattleElement.appendChild(listItem);
 
