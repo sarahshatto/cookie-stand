@@ -12,9 +12,11 @@
 // total cookies for the day ::after
 'use strict';
 
-var hours = ['6am', '7am', '8am', '9am', '10am','11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'Daily Location Total'];
+var parentElement = document.getElementById('table');
 
+var hours = ['6am', '7am', '8am', '9am', '10am','11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
+var allStores = [];
 
 function Stores(name, minCustomersEachHour, maxCustomersEachHour, averageCookiesSoldPerCustomer, customersEachHour, cookiesSoldEachHour, totalCookiesForTheDay){
   this.name = name;
@@ -24,6 +26,7 @@ function Stores(name, minCustomersEachHour, maxCustomersEachHour, averageCookies
   this.customersEachHour = customersEachHour;
   this.cookiesSoldEachHour = cookiesSoldEachHour;
   this.totalCookiesForTheDay = totalCookiesForTheDay;
+  allStores.push(this);
 }
 
 Stores.prototype.getRandomNumber = function(min,max) {
@@ -49,7 +52,7 @@ Stores.prototype.calcCookiesSoldEachHour = function(){
   }
 },
 
-Stores.prototype.renderhours = function() {
+Stores.prototype.renderHours = function() {
   var parentElement =document.getElementById('table');
   var tableRow = document.createElement('tr');
   var tableHeader = document.createElement('th');
@@ -61,6 +64,11 @@ Stores.prototype.renderhours = function() {
     tableHeader.textContent = hours[i];
     tableRow.appendChild(tableHeader);
   }
+
+  tableHeader = document.createElement('th');
+  tableHeader.textContent = 'Daily Location Total';
+  tableRow.appendChild(tableHeader);
+
   parentElement.appendChild(tableRow);
 },
 
@@ -68,29 +76,68 @@ Stores.prototype.renderhours = function() {
 Stores.prototype.render = function(){
   this.calcCustomersEachHour();
   this.calcCookiesSoldEachHour();
-  var parentElement =document.getElementById('table');
+
   var tableRow = document.createElement('tr');
   var tableHeader = document.createElement('th');
+
   tableHeader.textContent = this.name;
   tableRow.appendChild(tableHeader);
+
   for(var i=0; i<this.cookiesSoldEachHour.length; i++){
     var tableData = document.createElement('td');
     tableData.textContent = this.cookiesSoldEachHour[i];
     tableRow.appendChild(tableData);
-
-    // for(var j=0; j<this.hours.length && i===14; i++){
-    //   var tableDatatotal = document.createElement('td');
-    //   tableDatatotal.textContent = this.totalCookiesForTheDay[i];
-    //   tableRow.appendChild(tableDatatotal);
-    // }
   }
-  var tableDatab = document.createElement('td');
-  tableDatab.textContent = this.cookiesSoldEachHour[i];
-  tableDatab.textContent = this.cookiesSoldEachHour[i];
-  tableRow.appendChild(tableDatab);
+
+  var totalData = document.createElement('td');
+  totalData.textContent = this.totalCookiesForTheDay;
+  tableRow.appendChild(totalData);
   // append the table row to the parent element
   parentElement.appendChild(tableRow);
 };
+
+function renderFooterRow(){
+  var totalOfAllTotals = 0;
+  var tableRow = document.createElement('tr');
+  var tableData = document.createElement('td');
+  tableData.textContent = 'Hourly Total';
+  tableRow.appendChild(tableData);
+
+  // outer loop: for each hour
+  // inner loop is going to loop over each store
+  // access my cookies sold each hour array at the same position as my outer loop
+  for(var i=0; i<hours.length; i++){
+
+    var sum = 0;
+
+    for(var j=0; j<allStores.length; j++){
+      console.log('inner loop', sum);
+      sum += allStores[j].cookiesSoldEachHour[i];
+    }
+
+    totalOfAllTotals += sum;
+    // totalOfAllTotals = totalOfAllTotal + sum;
+
+    // create a td
+    tableData = document.createElement('td');
+    // fill it with the sum
+    tableData.textContent = sum;
+    // append it to the table row
+    tableRow.appendChild(tableData);
+
+
+    // append the total of all totals
+    // create a td
+    // tableData = document.createElement('td');
+    // fill it the total
+    tableData.textContent = totalOfAllTotals;
+    // append it to the table row
+    tableRow.appendChild(tableData);
+
+    // append table row to parent
+    parentElement.appendChild(tableRow);
+  }
+}
 
 // Stores.prototype.rendertotals = function(){
 
@@ -101,14 +148,25 @@ var Dubai = new Stores('Dubai', 3, 24, 1.2, [], [], 0);
 var Paris = new Stores('Paris', 20, 38, 2.3, [], [], 0);
 var Lima = new Stores('Lima', 2, 16, 4.6, [], [], 0);
 
+// var AllStores = [
+//   new Stores('Seattle', 23, 65, 6.3, [], [], 0),
+//   new Stores('Seattle', 23, 65, 6.3, [], [], 0),
+//   new Stores('Seattle', 23, 65, 6.3, [], [], 0),
+//   new Stores('Seattle', 23, 65, 6.3, [], [], 0),
+//   new Stores('Seattle', 23, 65, 6.3, [], [], 0),
+// ];
+
+
+
 // console.log('This is my customers each hour array', Seattle.customersEachHour)
 
-Stores.prototype.renderhours();
+Stores.prototype.renderHours();
 Seattle.render();
 Tokyo.render();
 Dubai.render();
 Paris.render();
 Lima.render();
+renderFooterRow();
 
 //table building from class demo
 // looking at the table, we see the header, the body and the footer.
@@ -171,3 +229,46 @@ Lima.render();
 //   }
 //   parentElement.appendChild(tableRow);
 // },
+
+
+
+// function renderFooterRow(){
+//   var totalOfAllTotals = 0; // total of all totals = 0
+//   // create a table row
+//   var tableRow = document.createElement('tr');
+//   // crete td
+//   var tableData = document.createElement('td');
+//   // fill with word 'total'
+//   tableData.textContent = 'Hourly Total';
+//   // append it to the table row
+//   tableRow.appendChild(tableData);
+//   // append table Row to parent
+//   parentElement.appendChild(tableRow);
+//   // inner loop over each store
+//   // outer loop looking at the hours
+//   //inner array needs to access the array of cookies sold each hour at the same position as my outer loop
+//   for(var i=0; i<hours.length; i++) {
+
+//     var sum = 0;
+
+//     for (var j=0; j<allStores.length; j++) {
+//       sum += allStores[j].cookiesSoldEachHour[i];
+//     }
+
+//     totalOfAllTotals += sum;
+
+//     // create a td
+//     tableData = document.createElement('td');
+//     // fill it with the sum
+//     tableData.textContent = sum;
+//     // append it to the table row
+//     tableRow.appendChild(tableData);
+//   }
+//   //create a td
+//   tableData = document.createElement('td');
+//   tableData.textContent = totalOfAllTotals;
+//   tableRow.appendChild(tableData);
+
+//   parentElement.appendChild(tableRow);
+// };
+
