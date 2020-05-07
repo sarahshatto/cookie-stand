@@ -1,0 +1,22 @@
+*{
+  background-color: salmon;
+  font-family: Helvetica, sans-serif;
+}
+
+table {
+  background-color: white;
+  /* border: .5px, solid, gray;  */
+  /* padding: .5px; */
+}
+
+
+th{
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+tr{
+  color: white;
+  text-align: center;
+}
