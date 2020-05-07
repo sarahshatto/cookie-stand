@@ -77,6 +77,12 @@ Stores.prototype.render = function(){
     var tableData = document.createElement('td');
     tableData.textContent = this.cookiesSoldEachHour[i];
     tableRow.appendChild(tableData);
+
+    // for(var j=0; j<this.hours.length && i===14; i++){
+    //   var tableDatatotal = document.createElement('td');
+    //   tableDatatotal.textContent = this.totalCookiesForTheDay[i];
+    //   tableRow.appendChild(tableDatatotal);
+    // }
   }
   var tableDatab = document.createElement('td');
   tableDatab.textContent = this.cookiesSoldEachHour[i];
@@ -86,6 +92,9 @@ Stores.prototype.render = function(){
   parentElement.appendChild(tableRow);
 };
 
+// Stores.prototype.rendertotals = function(){
+
+// }
 var Seattle = new Stores('Seattle', 23, 65, 6.3, [], [], 0);
 var Tokyo = new Stores('Tokyo', 3, 24, 1.2, [], [], 0);
 var Dubai = new Stores('Dubai', 3, 24, 1.2, [], [], 0);
@@ -105,17 +114,23 @@ Lima.render();
 // looking at the table, we see the header, the body and the footer.
 // the header content holds all of these hours, so it's not unique to any one "Store", it's for everyone, so it will be a function.
 // // 1. Select the parent element (tbody)
-// // // var parentElement =document.getElementById('table');
 // this is for "seattle"
+// // // var parentElement =document.getElementById('table');
+//
 // // 2. Create a new element (tr / tablerow)
 // // // var tableRow = document.createElement('tr');
+//
 // // 3. Create a header row (th / table header)
 //  // // var tableHeader = document.createElement('th');
+//
 // // 4. fill it with text content, (this.name)
 // // // tableHeader.textContent = this.name;
+//
 // // 5. Append to the parent/ table row.
 // // // tableRow.appendChild(tableHeader);
+//
 // this is for the cookies sold each hour (any time I have an array to loop through, use a for loop!),
+//
 // for(var i=0; i<this.cookiesSoldEachHour.length; i++){
 //   var tableData = document.createElement('td');
 //   tableData.textContent = this.cookiesSoldEachHour[i];
