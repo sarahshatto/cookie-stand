@@ -1,6 +1,7 @@
 *{
-  background-color: salmon;
-  font-family: Helvetica, sans-serif;
+  background-color: rgb(207, 171, 162);
+  font-family: 'Permanent Marker', cursive;
+  
 }
 
 table {
@@ -19,4 +20,13 @@ th{
 tr{
   color: white;
   text-align: center;
+}
+
+#lineBreakDiv{
+  height: 150px;
+}
+
+#form, label textarea, button, h1, h2{
+  /* background-color: white; */
+  color: white;
 }

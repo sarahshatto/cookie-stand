@@ -139,6 +139,8 @@ function renderFooterRow(){
   }
 }
 
+
+
 // Stores.prototype.rendertotals = function(){
 
 // }
@@ -148,17 +150,41 @@ var Dubai = new Stores('Dubai', 3, 24, 1.2, [], [], 0);
 var Paris = new Stores('Paris', 20, 38, 2.3, [], [], 0);
 var Lima = new Stores('Lima', 2, 16, 4.6, [], [], 0);
 
-// var AllStores = [
-//   new Stores('Seattle', 23, 65, 6.3, [], [], 0),
-//   new Stores('Seattle', 23, 65, 6.3, [], [], 0),
-//   new Stores('Seattle', 23, 65, 6.3, [], [], 0),
-//   new Stores('Seattle', 23, 65, 6.3, [], [], 0),
-//   new Stores('Seattle', 23, 65, 6.3, [], [], 0),
-// ];
 
+// 3. select the element that I am listening on:
+var form = document.getElementById('form');
 
+// 1. Global array to store all instances:
+var allNewStores = [];
+// 2. Constructor function
+function NewStore(name, newLocation, minCustpHr, maxCustpHr, avgCookiespCust){
+  this.name = name;
+  this.newLocation = newLocation;
+  this.minCustpHr = minCustpHr;
+  this.maxCustpHr = maxCustpHr;
+  this.avgCookiespCust = avgCookiespCust;
+  allNewStores.push(this);
+}
+// set up event handler
+function handleFormSubmit(event){
+  event.preventDefault();
+  //console.log(event.target) to debug
+  var name = event.target.formname.value;
+  var newLocation = event.target.formlocation.value;
+  var minCustpHr = event.target.formmin.value;
+  var maxCustpHr = event.target.formmax.value;
+  var avgCookiespCust = event.target.formavgcookies.value;
+  console.log('the name is ', name);
+  console.log('the new location requested is ', newLocation);
+  console.log('the minimum customers per hour is ', minCustpHr);
+  console.log('the maximum customers per hour is ', maxCustpHr);
+  console.log('Average Cookies sold per customer is ', avgCookiespCust);
+  // console.log(variable) //
+  new NewStore(name, newLocation, minCustpHr, maxCustpHr, avgCookiespCust);
+}
 
-// console.log('This is my customers each hour array', Seattle.customersEachHour)
+// 4. set up my event listener:
+form.addEventListener('submit', handleFormSubmit);
 
 Stores.prototype.renderHours();
 Seattle.render();
