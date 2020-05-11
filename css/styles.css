@@ -17,7 +17,11 @@ body {
 #content {
   overflow: 0 auto;
 }
-
+#heart{
+  /* height: 300px; */
+  background-color: red;
+  /* Margin-top: 20px; */
+}
 #nav, #heroImage, #footer {
   margin: 1%;
 }
