@@ -1,0 +1,60 @@
+/* For sales.html specifically */
+*{
+  color:white;
+  font-family: 'Permanent Marker', cursive;
+}
+ul {
+  background-color: rgb(207, 171, 162);
+}
+
+li {
+  background-color: rgb(207, 171, 162);
+  display: inline;
+  padding: 0em 2em 0em 2em;
+}
+
+li a {
+  background-color:rgb(207, 171, 162);
+  color: white;
+  text-decoration: none;
+}
+
+li a:hover{
+  color: black;
+}
+
+#nav {
+  background-color: rgb(207, 171, 162);
+  padding: 20px;
+  margin: 1%;
+  text-align: center;
+}
+#header h1{
+    color: black;
+    text-align: center;
+  }
+table {
+  background-color: rgb(207, 171, 162);
+  border: 1px, solid, gray; 
+  /* padding: .5px; */
+}
+
+th{
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+tr{
+  color: white;
+  text-align: center;
+}
+
+#lineBreakDiv{
+  height: 150px;
+}
+
+#form, label textarea, button, h1, h2{
+  /* background-color: white; */
+  color: white;
+}
