@@ -1,8 +1,37 @@
 *{
-  background-color: rgb(207, 171, 162);
+  background-color: white;
   font-family: 'Permanent Marker', cursive;
+  color:rgb(207, 171, 162);
   
 }
+body {
+  width:90%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#content {
+  overflow: 0 auto;
+}
+
+#nav, #heroImage, #footer {
+  margin: 1%;
+}
+
+h4 {
+  background-color: rgb(207, 171, 162)
+  color: white;
+}
+.aColumn1, .aColumn2, .aColumn3, .aColumn4, .aColumn5, .aColumn6 {
+  width: 31.3%; 
+  float: left;
+  margin: 1%;
+  background-color: rgb(207, 171, 162);
+  padding-bottom: 20px;
+  color: white; 
+}
+
+
 
 table {
   background-color: white;

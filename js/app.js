@@ -18,14 +18,14 @@ var hours = ['6am', '7am', '8am', '9am', '10am','11am', '12pm', '1pm', '2pm', '3
 
 var allStores = [];
 
-function Stores(name, minCustomersEachHour, maxCustomersEachHour, averageCookiesSoldPerCustomer, customersEachHour, cookiesSoldEachHour, totalCookiesForTheDay){
+function Stores(name, minCustomersEachHour, maxCustomersEachHour, averageCookiesSoldPerCustomer){
   this.name = name;
   this.minCustomersEachHour = minCustomersEachHour;
   this.maxCustomersEachHour = maxCustomersEachHour;
   this.averageCookiesSoldPerCustomer = averageCookiesSoldPerCustomer;
-  this.customersEachHour = customersEachHour;
-  this.cookiesSoldEachHour = cookiesSoldEachHour;
-  this.totalCookiesForTheDay = totalCookiesForTheDay;
+  this.customersEachHour = [];
+  this.cookiesSoldEachHour = [];
+  this.totalCookiesForTheDay = 0;
   allStores.push(this);
 }
 
@@ -144,47 +144,55 @@ function renderFooterRow(){
 // Stores.prototype.rendertotals = function(){
 
 // }
-var Seattle = new Stores('Seattle', 23, 65, 6.3, [], [], 0);
-var Tokyo = new Stores('Tokyo', 3, 24, 1.2, [], [], 0);
-var Dubai = new Stores('Dubai', 3, 24, 1.2, [], [], 0);
-var Paris = new Stores('Paris', 20, 38, 2.3, [], [], 0);
-var Lima = new Stores('Lima', 2, 16, 4.6, [], [], 0);
+var Seattle = new Stores('Seattle', 23, 65, 6.3);
+var Tokyo = new Stores('Tokyo', 3, 24, 1.2);
+var Dubai = new Stores('Dubai', 3, 24, 1.2);
+var Paris = new Stores('Paris', 20, 38, 2.3);
+var Lima = new Stores('Lima', 2, 16, 4.6);
 
 
 // 3. select the element that I am listening on:
 var form = document.getElementById('form');
 
-// 1. Global array to store all instances:
-var allNewStores = [];
-// 2. Constructor function
-function NewStore(name, newLocation, minCustpHr, maxCustpHr, avgCookiespCust){
-  this.name = name;
-  this.newLocation = newLocation;
-  this.minCustpHr = minCustpHr;
-  this.maxCustpHr = maxCustpHr;
-  this.avgCookiespCust = avgCookiespCust;
-  allNewStores.push(this);
-}
+
 // set up event handler
 function handleFormSubmit(event){
   event.preventDefault();
   //console.log(event.target) to debug
-  var name = event.target.formname.value;
   var newLocation = event.target.formlocation.value;
-  var minCustpHr = event.target.formmin.value;
-  var maxCustpHr = event.target.formmax.value;
-  var avgCookiespCust = event.target.formavgcookies.value;
-  console.log('the name is ', name);
+  var minCustpHr = parseInt(event.target.formmin.value);
+  var maxCustpHr = parseInt(event.target.formmax.value);
+  var avgCookiespCust = parseInt(event.target.formavgcookies.value);
+
   console.log('the new location requested is ', newLocation);
   console.log('the minimum customers per hour is ', minCustpHr);
   console.log('the maximum customers per hour is ', maxCustpHr);
   console.log('Average Cookies sold per customer is ', avgCookiespCust);
   // console.log(variable) //
-  new NewStore(name, newLocation, minCustpHr, maxCustpHr, avgCookiespCust);
-}
+  new Stores(newLocation, minCustpHr, maxCustpHr, avgCookiespCust);
 
-// 4. set up my event listener:
-form.addEventListener('submit', handleFormSubmit);
+  var newStore = new Stores(newLocation, minCustpHr, maxCustpHr, avgCookiespCust);
+
+  newStore.render();
+  // now we have an array called NewStore that has all of the stores including the new location in it. 
+  // delete the table, rebuild it, then clear the table.
+  // //
+
+  // //clear the table
+  // parentElement.textContent = '';
+
+
+  // // tableHeader();
+
+  // // loop over all of my object instances including new addition, call the render function on all of them (which calls all of the assosciated functions), renders the table, then render the footer row.
+  // for(var i=0; allStores.length; i++){
+  //   allStores[i].render();
+
+  //   renderFooterRow();
+
+  // }
+
+}
 
 Stores.prototype.renderHours();
 Seattle.render();
@@ -192,7 +200,11 @@ Tokyo.render();
 Dubai.render();
 Paris.render();
 Lima.render();
-renderFooterRow();
+
+
+
+// 4. set up my event listener:
+form.addEventListener('submit', handleFormSubmit);
 
 //table building from class demo
 // looking at the table, we see the header, the body and the footer.
