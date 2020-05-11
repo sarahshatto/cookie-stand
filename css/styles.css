@@ -1,32 +1,81 @@
 *{
-  background-color: rgb(207, 171, 162);
-  font-family: 'Permanent Marker', cursive;
-  
-}
-
-table {
   background-color: white;
-  /* border: .5px, solid, gray;  */
-  /* padding: .5px; */
+  font-family: 'Permanent Marker', cursive;
+  color:rgb(207, 171, 162);
 }
 
+h1 {
+  color: black;
+}
 
-th{
-  color: white;
-  padding: 10px;
+body {
+  width:90%;
+  margin: 0 auto;
   text-align: center;
 }
 
-tr{
-  color: white;
+#content {
+  overflow: 0 auto;
+}
+#heart{
+  /* height: 300px; */
+  background-color: red;
+  /* Margin-top: 20px; */
+}
+#nav, #heroImage, #footer {
+  margin: 1%;
+}
+
+h4 {
+  background-color: white;
+  color: rgb(207, 171, 162);
+}
+
+.aColumn1, .aColumn2, .aColumn3, .aColumn4, .aColumn5, .aColumn6 {
+  width: 31.3%; 
+  float: left;
+  margin: 1%;
+  background-color: rgb(207, 171, 162);
+  padding-bottom: 20px;
+  color: white; 
+}
+
+.aColumn3 {
+  margin-right: 0%;
+}
+
+.aColumn6 {
+  display:block;
   text-align: center;
 }
 
-#lineBreakDiv{
-  height: 150px;
+ul {
+  background-color: rgb(207, 171, 162);
 }
 
-#form, label textarea, button, h1, h2{
-  /* background-color: white; */
+li {
+  background-color: rgb(207, 171, 162);
+  display: inline;
+  padding: 0em 2em 0em 2em;
+}
+
+li a {
+  background-color:rgb(207, 171, 162);
   color: white;
+  text-decoration: none;
+}
+
+li a:hover{
+  color: black;
+}
+
+#nav {
+  background-color: rgb(207, 171, 162);
+  padding: 20px;
+}
+
+#heroImage {
+  height:10em;
+  margin-bottom: 1em;
+  /* background-color: rgb(207, 171, 162); */
 }
