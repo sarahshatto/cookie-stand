@@ -174,7 +174,7 @@ function handleFormSubmit(event){
   var newStore = new Stores(newLocation, minCustpHr, maxCustpHr, avgCookiespCust);
 
   newStore.render();
-  // now we have an array called NewStore that has all of the stores including the new location in it. 
+  // now we have an array called NewStore that has all of the stores including the new location in it.
   // delete the table, rebuild it, then clear the table.
   // //
 
@@ -200,7 +200,7 @@ Tokyo.render();
 Dubai.render();
 Paris.render();
 Lima.render();
-
+renderFooterRow();
 
 
 // 4. set up my event listener:
