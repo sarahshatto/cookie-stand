@@ -52,14 +52,14 @@ Stores.prototype.calcCookiesSoldEachHour = function(){
   }
 },
 
-Stores.prototype.renderHours = function() {
-  var parentElement =document.getElementById('table');
+Stores.prototype.renderHours = function(){
+  var parentElement = document.getElementById('table');
   var tableRow = document.createElement('tr');
   var tableHeader = document.createElement('th');
   tableHeader.textContent = '';
   tableRow.appendChild(tableHeader);
 
-  for (var i=0; i < hours.length ; i++) {
+  for (var i=0; i < hours.length; i++) {
     tableHeader = document.createElement('th');
     tableHeader.textContent = hours[i];
     tableRow.appendChild(tableHeader);
