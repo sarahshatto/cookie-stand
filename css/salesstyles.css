@@ -36,10 +36,18 @@ li a:hover{
     color: black;
     text-align: center;
   }
+
+#tablediv{
+  display: block;
+  text-align:center;
+  margin: auto;
+}
 table {
   background-color: rgb(207, 171, 162);
-  border: 1px, solid, gray; 
+  border: 1px, solid, gray;
+  text-align:center;
   /* padding: .5px; */
+  margin:auto;
 }
 
 th{
@@ -54,10 +62,16 @@ tr{
 }
 
 #lineBreakDiv{
-  height: 150px;
+  height: 25px;
 }
 
-#form, label textarea, button, h1, h2{
-  /* background-color: white; */
+#form, label textarea, button{
+  background-color: rgb(207, 171, 162);
   color: white;
+}
+
+h2{
+  color:black;
+  text-align: center;
+
 }
