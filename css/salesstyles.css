@@ -3,8 +3,8 @@
 /* font-family: 'Pangolin', cursive; */
 /* font-family: 'Permanent Marker', cursive; */
 *{
-  color:white;
-  font-family: 'Permanent Marker', cursive;
+  color:rgb(207, 171, 162);
+  font-family: 'Pangolin', cursive;
 }
 ul {
   background-color: rgb(207, 171, 162);
@@ -20,6 +20,7 @@ li a {
   background-color:rgb(207, 171, 162);
   color: white;
   text-decoration: none;
+  font-family: 'Permanent Marker', cursive;
 }
 
 li a:hover{
@@ -35,6 +36,7 @@ li a:hover{
 #header h1{
     color: black;
     text-align: center;
+    font-family: 'Permanent Marker', cursive;
   }
 
 #tablediv{
@@ -42,23 +44,31 @@ li a:hover{
   text-align:center;
   margin: auto;
 }
+
 table {
-  background-color: rgb(207, 171, 162);
-  border: 1px, solid, gray;
+  background-color: white;
+  border: 2px solid rgb(207, 171, 162);
   text-align:center;
-  /* padding: .5px; */
+  /* padding: 50px; */
   margin:auto;
+  border-collapse: collapse;
+
+}
+
+table, th, td {
+  border: 3px solid rgb(207, 171, 162);
 }
 
 th{
-  color: white;
+  color: rgb(207, 171, 162);
   padding: 10px;
   text-align: center;
 }
 
 tr{
-  color: white;
+  color: rgb(207, 171, 162);
   text-align: center;
+  border: 2px solid rgb(207, 171, 162);
 }
 
 #lineBreakDiv{
@@ -68,10 +78,12 @@ tr{
 #form, label textarea, button{
   background-color: rgb(207, 171, 162);
   color: white;
+  font-family: 'Permanent Marker', cursive;
 }
 
 h2{
   color:black;
   text-align: center;
+  font-family: 'Permanent Marker', cursive;
 
 }
